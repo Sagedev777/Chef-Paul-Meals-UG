@@ -229,6 +229,7 @@
                         id="firstname"
                         placeholder="Isaac"
                         class="formbold-form-input"
+                        required
                         />
                     </div>
                     <div>
@@ -239,6 +240,7 @@
                         id="lastname"
                         placeholder="Newton"
                         class="formbold-form-input"
+                        required
                         />
                     </div>
                   </div>
@@ -252,6 +254,7 @@
                         id="email"
                         placeholder="forexample@mail.com"
                         class="formbold-form-input"
+                        required
                         />
                     </div>
                     <div>
@@ -262,6 +265,7 @@
                         id="phone"
                         placeholder="(+265) 755501150"
                         class="formbold-form-input"
+                        required
                         />
                     </div>
                   </div>
@@ -312,6 +316,7 @@
                           id="message"
                           placeholder="Type your message"
                           class="formbold-form-input"
+                          required
                       ></textarea>
                   </div>
           
@@ -402,6 +407,21 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+      document.querySelector('form').addEventListener('submit', function(event) {
+          const firstname = document.getElementById('firstname').value;
+          const lastname = document.getElementById('lastname').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
+          const message = document.getElementById('message').value;
+      
+          if (!firstname || !lastname || !email || !phone || !message) {
+              alert('Please fill out all required fields.');
+              event.preventDefault(); // Prevent form submission
+          }
+      });
+      </script>
     </body>
 
 </html>

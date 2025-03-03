@@ -188,6 +188,7 @@
                     id="name"
                     placeholder="Full Name"
                     class="formbold-form-input"
+                    required
                   />
                 </div>
                 <div class="formbold-mb-5">
@@ -198,6 +199,7 @@
                     id="phone"
                     placeholder="Enter your phone number"
                     class="formbold-form-input"
+                    required
                   />
                 </div>
 
@@ -209,6 +211,7 @@
                       id="eventype"
                       placeholder="Enter your type of event"
                       class="formbold-form-input"
+                      required
                     />
                 </div>
 
@@ -220,6 +223,7 @@
                     id="email"
                     placeholder="Enter your email"
                     class="formbold-form-input"
+                    required
                   />
                 </div>
                 <div class="flex flex-wrap formbold--mx-3">
@@ -231,6 +235,7 @@
                         name="date"
                         id="date"
                         class="formbold-form-input"
+                        required
                       />
                     </div>
                   </div>
@@ -242,6 +247,7 @@
                         name="time"
                         id="time"
                         class="formbold-form-input"
+                        required
                       />
                     </div>
                   </div>
@@ -388,6 +394,18 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+      document.querySelector('form').addEventListener('submit', function(event) {
+          const name = document.getElementById('name').value;
+          const phone = document.getElementById('phone').value;
+          const email = document.getElementById('email').value;
+      
+          if (!name || !phone || !email) {
+              alert('Please fill out all required fields.');
+              event.preventDefault(); // Prevent form submission
+          }
+      });
+      </script>
     </body>
 
 </html>
